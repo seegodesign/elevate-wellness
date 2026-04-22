@@ -32,7 +32,7 @@ export function BookingSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16">
-          <p className="text-[var(--sage)] tracking-widest uppercase mb-4">
+          <p className="text-white tracking-widest uppercase mb-4">
             Easy Booking
           </p>
           <h2 className="text-4xl md:text-6xl mb-6" style={{ fontFamily: 'var(--font-serif)' }}>

@@ -4,20 +4,17 @@ import { Star } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative h-screen min-h-[700px] flex items-center justify-center">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--orange)]/70 via-[var(--ocean)]/50 to-[var(--sage)]/20 z-10" />
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "url('https://plus.unsplash.com/premium_photo-1726862442286-cb1c33d5db4a?q=80&w=1060&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-          }}
-          role="img"
-          aria-label="Tropical beach paradise at sunset"
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/src/imports/12453948-hd_1280_720_30fps.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
         />
       </div>
 
@@ -27,14 +24,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex items-center justify-center gap-2 mb-6"
+          className="flex flex-col items-center justify-center gap-2 mb-6"
         >
           <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-5 h-5 fill-[var(--yellow)] text-[var(--yellow)]" />
             ))}
           </div>
-          <span className="text-white/90 tracking-wide">Top-rated in Kapa'a</span>
+          <div className="text-white/90 tracking-wide">Voted #1 Wellness Service in Kapa’a</div>
         </motion.div>
 
         <motion.h1
@@ -44,8 +41,8 @@ export function Hero() {
           className="text-5xl md:text-7xl text-white mb-6 leading-tight"
           style={{ fontFamily: 'var(--font-serif)' }}
         >
-          Relaxing Massage &<br />
-          Wellness in Kauai
+          Kauai's Top-rated<br />
+          Wellness Experiences
         </motion.h1>
 
         <motion.p
@@ -54,7 +51,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto"
         >
-          Couples massage, mobile services, and beachside experiences in Kapa'a
+          Couples massage, mobile services, and oceanside experiences — tailored wellness wherever you are on Kauai.
         </motion.p>
 
         <motion.div
@@ -79,9 +76,9 @@ export function Hero() {
       </div>
 
       {/* Decorative wave element */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      {/* <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg
-          viewBox="0 0 1440 120"
+          viewBox="0 0 1440 119"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full"
@@ -91,7 +88,7 @@ export function Hero() {
             fill="#F5EFE7"
           />
         </svg>
-      </div>
+      </div> */}
     </section>
   );
 }

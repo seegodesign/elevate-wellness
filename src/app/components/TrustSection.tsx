@@ -2,9 +2,9 @@ import { Star } from "lucide-react";
 
 export function TrustSection() {
   const reviews = [
-    { platform: "Google", rating: 5.0, count: 127 },
-    { platform: "Yelp", rating: 5.0, count: 89 },
-    { platform: "TripAdvisor", rating: 5.0, count: 156 },
+    { platform: "Google", rating: 4.9, count: 157 },
+    { platform: "Yelp", rating: 4.9, count: 245 },
+    { platform: "TripAdvisor", rating: 4.9, count: 195 },
   ];
 
   return (
@@ -53,14 +53,14 @@ export function TrustSection() {
       {/* Bottom curve divider */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg
-          viewBox="0 0 1440 80"
+          viewBox="0 0 1440 79"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full"
         >
           <path
             d="M0 20L120 30C240 40 480 60 720 60C960 60 1200 40 1320 30L1440 20V80H0V20Z"
-            fill="#FDFBF7"
+            fill="var(--charcoal)"
           />
         </svg>
       </div>

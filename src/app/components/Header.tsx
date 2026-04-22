@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../../imports/logo.png";
+import { serviceCategories } from "../data/services";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +16,17 @@ export function Header() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close services dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const navigation = [
@@ -52,19 +66,93 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`transition-colors duration-200 ${
+            {/* Services mega menu */}
+            <div
+              ref={servicesRef}
+              className="relative"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button
+                onClick={() => setIsServicesOpen((o) => !o)}
+                className={`flex items-center gap-1 transition-colors duration-200 ${
                   isScrolled
                     ? "text-[var(--charcoal)] hover:text-[var(--ocean)]"
-                    : "text-white hover:text-[var(--sage)]"
+                    : "text-white"
                 }`}
               >
-                {item.name}
-              </a>
-            ))}
+                Services
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {isServicesOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50" style={{ width: `${serviceCategories.length * 250}px` }}>
+                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[var(--border)]">
+                  <div className={`grid divide-x divide-[var(--border)]`} style={{ gridTemplateColumns: `repeat(${serviceCategories.length}, 1fr)` }}>
+                    {serviceCategories.map((cat) => (
+                      <div key={cat.slug} className="p-5">
+                        <div className="mb-3">
+                          <h3 className="font-semibold text-[var(--charcoal)] leading-snug text-md">
+                            {cat.title}
+                          </h3>
+                          <p className="mt-1 text-sm text-[var(--charcoal)]/55 leading-snug">
+                            {cat.description}
+                          </p>
+                        </div>
+                        <ul className="space-y-0.5">
+                          {cat.services.map((item) => (
+                            <li key={item.name}>
+                              <a
+                                href="#services"
+                                onClick={() => setIsServicesOpen(false)}
+                                className="flex flex-col px-2 py-1.5 rounded-lg hover:bg-[var(--sand)] transition-colors duration-150 group"
+                              >
+                                <span className="text-sm text-[var(--charcoal)] group-hover:text-[var(--ocean)] transition-colors">
+                                  {item.name}
+                                </span>
+                                {item.note && (
+                                  <span className="text-xs text-[var(--sage)]">
+                                    {item.note}
+                                  </span>
+                                )}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="border-t border-[var(--border)] px-5 py-3 bg-[var(--sand)]/50">
+                    <a
+                      href="#booking"
+                      onClick={() => setIsServicesOpen(false)}
+                      className="text-sm text-[var(--sage)] font-medium hover:underline"
+                    >
+                      Book any service →
+                    </a>
+                  </div>
+                </div>
+                </div>
+              )}
+            </div>
+
+            {navigation
+              .filter((item) => item.name !== "Services")
+              .map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`transition-colors duration-200 ${
+                    isScrolled
+                      ? "text-[var(--charcoal)] hover:text-[var(--ocean)]"
+                      : "text-white hover:underline"
+                  }`}
+                >
+                  {item.name}
+                </a>
+              ))}
             <button
               onClick={scrollToBooking}
               className="px-6 py-2 bg-[var(--sage)] text-white rounded-full hover:bg-[var(--sage-dark)] transition-all duration-300"
@@ -92,16 +180,47 @@ export function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg">
             <nav className="flex flex-col p-6 space-y-4">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[var(--charcoal)] hover:text-[var(--ocean)] transition-colors duration-200"
-                >
-                  {item.name}
-                </a>
-              ))}
+              {/* Services expandable group */}
+              <div className="space-y-4">
+                {serviceCategories.map((cat) => (
+                  <div key={cat.slug}>
+                    <p className="text-xs tracking-widest uppercase text-[var(--ocean)] mb-1">
+                      {cat.tag}
+                    </p>
+                    {cat.services.map((item) => (
+                      <a
+                        key={item.name}
+                        href="#services"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center justify-between gap-2 py-1.5 text-[var(--charcoal)] hover:text-[var(--ocean)] transition-colors duration-200"
+                      >
+                        <span className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--ocean)]/40" />
+                          {item.name}
+                        </span>
+                        {item.note && (
+                          <span className="text-xs text-[var(--sage)] bg-[var(--sage)]/10 px-1.5 py-0.5 rounded-full">
+                            {item.note}
+                          </span>
+                        )}
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-[var(--border)]" />
+              {navigation
+                .filter((item) => item.name !== "Services")
+                .map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[var(--charcoal)] hover:text-[var(--ocean)] transition-colors duration-200"
+                  >
+                    {item.name}
+                  </a>
+                ))}
               <button
                 onClick={scrollToBooking}
                 className="px-6 py-3 bg-[var(--sage)] text-white rounded-full hover:bg-[var(--sage-dark)] transition-all duration-300 text-center"

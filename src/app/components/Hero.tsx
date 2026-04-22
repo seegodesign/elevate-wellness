@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
+import heroBgVideo from "../../imports/12453948-hd_1280_720_30fps.mp4";
 
 export function Hero() {
   return (
@@ -9,7 +10,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--orange)]/70 via-[var(--ocean)]/50 to-[var(--sage)]/20 z-10" />
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/src/imports/12453948-hd_1280_720_30fps.mp4"
+          src={heroBgVideo}
           autoPlay
           loop
           muted

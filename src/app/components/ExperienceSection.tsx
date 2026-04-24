@@ -53,12 +53,12 @@ export function ExperienceSection() {
         >
           <path
             d="M0 30L60 40C120 50 240 70 360 75C480 80 600 70 720 60C840 50 960 40 1080 45C1200 50 1320 70 1380 80L1440 90V100H0V30Z"
-            fill="#FDFBF7"
+            fill="#F5F0E9"
             fillOpacity="0.5"
           />
           <path
             d="M0 50L60 58C120 66 240 82 360 86C480 90 600 82 720 74C840 66 960 58 1080 62C1200 66 1320 82 1380 90L1440 98V100H0V50Z"
-            fill="#FDFBF7"
+            fill="#F5F0E9"
           />
         </svg>
       </div>

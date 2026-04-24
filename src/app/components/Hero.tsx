@@ -32,7 +32,7 @@ export function Hero() {
               <Star key={i} className="w-5 h-5 fill-[var(--yellow)] text-[var(--yellow)]" />
             ))}
           </div>
-          <div className="text-white/90 tracking-wide">Voted #1 Wellness Service in Kapa’a</div>
+          <div className="text-white/90 tracking-wide">Voted #1 Wellness Service in Kapa’a on TripAdvisor</div>
         </motion.div>
 
         <motion.h1

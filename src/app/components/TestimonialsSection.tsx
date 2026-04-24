@@ -20,12 +20,6 @@ export function TestimonialsSection() {
       text: "We were nervous about finding quality massage on the island, but Elevate Wellness exceeded expectations. Friendly, professional, and the beachside experience was unforgettable. Thank you!",
       rating: 5
     },
-    {
-      name: "Robert M.",
-      location: "Denver, CO",
-      text: "The acupuncture session helped my lower back pain that had been bothering me for months. Combined with the massage, I felt like a new person. The therapists really know their craft.",
-      rating: 5
-    }
   ];
 
   return (
@@ -76,7 +70,8 @@ export function TestimonialsSection() {
 
         <div className="m-12 text-center">
           <a
-            href="#"
+            href="https://www.google.com/search?q=elevate+wellness+kauai&rlz=1C5CHFA_enUS1024US1024&oq=elevate+wellness+kauai&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDwyBggCEEUYPTIGCAMQRRg90gEIMjI3MGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#"
+            target="_blank"
             className="inline-flex items-center gap-2 text-[var(--ocean)] hover:text-[var(--ocean-light)] transition-colors"
           >
             Read more reviews on Google

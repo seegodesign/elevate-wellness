@@ -14,54 +14,47 @@ export interface ServiceCategory {
 
 export const serviceCategories: ServiceCategory[] = [
   {
-    slug: "massage-therapy",
-    tag: "Massage",
-    title: "Massage Therapy",
+    slug: "signature-relaxation",
+    tag: "Signature",
+    title: "Signature & Relaxation",
     description:
-      "From relaxing to therapeutic — a full range of massage modalities tailored to your needs.",
+      "Iconic experiences designed for rest and connection — from Hawaiian Lomi-Lomi to couples and group sessions.",
     image:
       "https://images.unsplash.com/photo-1770625467514-f072c8a64a8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
     services: [
-      { name: "Deep Tissue" },
       { name: "Lomi-Lomi" },
       { name: "Couples Massage" },
-      { name: "Pre-natal" },
-      { name: "Sports" },
-      { name: "Thai" },
-      { name: "Shiatsu" },
-      { name: "Massage Cupping" },
       { name: "Custom Massage" },
-      { name: "Structural Integration" },
       { name: "Large Group Massage", note: "Discounted Rate" },
     ],
   },
   {
-    slug: "acupuncture",
-    tag: "Acupuncture",
-    title: "Acupuncture",
+    slug: "therapeutic-rehabilitative",
+    tag: "Therapeutic",
+    title: "Therapeutic & Rehabilitative",
     description:
-      "Restore balance and relieve pain with time-tested holistic therapies.",
+      "Goal-oriented modalities focused on pain relief, recovery, and structural wellness.",
     image:
-      "https://images.unsplash.com/photo-1740689580128-9173edce303f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+      "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
     services: [
-      { name: "Foot Reflexology" },
-      { name: "Moxabustion" },
-      { name: "Cupping" },
-      { name: "Tuning Forks" },
-      { name: "E-Stim" },
+      { name: "Deep Tissue" },
+      { name: "Sports" },
+      { name: "Pre-natal" },
+      { name: "Structural Integration" },
+      { name: "Massage Cupping" },
     ],
   },
   {
-    slug: "health-coaching",
-    tag: "Wellness",
-    title: "Health Coaching",
+    slug: "specialty-bodywork",
+    tag: "Specialty",
+    title: "Specialty Bodywork",
     description:
-      "Personalized guidance to support your health, nutrition, and lifestyle goals.",
+      "Eastern and cultural techniques that go beyond the ordinary — balancing body, breath, and energy.",
     image:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
     services: [
-      { name: "Weight Loss" },
-      { name: "Diet & Cleansing Plans" },
+      { name: "Thai" },
+      { name: "Shiatsu" },
     ],
   },
 ];

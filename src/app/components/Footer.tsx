@@ -8,8 +8,7 @@ export function Footer() {
     services: [
       { name: "Couples Massage", href: "#services" },
       { name: "Mobile Massage", href: "#services" },
-      { name: "Beachside Massage", href: "#services" },
-      { name: "Acupuncture", href: "#services" }
+      { name: "Beachside Massage", href: "#services" }
     ],
     company: [
       { name: "About Us", href: "#" },
@@ -30,7 +29,7 @@ export function Footer() {
       {/* Top curve divider */}
       <div className="absolute top-0 left-0 right-0 z-10">
         <svg
-          viewBox="0 0 1440 80"
+          viewBox="0 0 1440 79"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full transform rotate-180"

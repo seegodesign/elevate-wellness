@@ -41,7 +41,7 @@ export function PackagesSection() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[var(--sand)] to-[var(--warm-white)] relative">
+    <section className="relative">
       {/* Top spacing for curve from previous section */}
       <div className="h-8" />
 

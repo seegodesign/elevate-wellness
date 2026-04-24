@@ -4,7 +4,7 @@ import { serviceCategories } from "../data/services";
 export function ServicesSection() {
   return (
     <section className="py-24 bg-[var(--charcoal)] relative" id="services">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto px-6 pb-20 lg:px-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -98,7 +98,7 @@ export function ServicesSection() {
         </div>
       </div>
 
-      {/* Bottom curve into next section */}
+      {/* Bottom wave into next section */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg
           viewBox="0 0 1440 99"
@@ -107,8 +107,8 @@ export function ServicesSection() {
           className="w-full"
         >
           <path
-            d="M0 20C240 80 480 100 720 100C960 100 1200 80 1440 20V100H0V20Z"
-            fill="#F5EFE7"
+            d="M0 80C240 20 480 0 720 0C960 0 1200 20 1440 80V100H0V80Z"
+            fill="var(--warm-white)"
           />
         </svg>
       </div>

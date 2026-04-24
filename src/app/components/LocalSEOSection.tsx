@@ -21,7 +21,7 @@ export function LocalSEOSection() {
             Elevate Wellness Kauai proudly offers premium <strong className="text-[var(--blue-gray)]">massage services in Kauai</strong>, specializing in <strong className="text-[var(--blue-gray)]">couples massage</strong>, <strong className="text-[var(--blue-gray)]">mobile massage therapy</strong>, and unique <strong className="text-[var(--blue-gray)]">beachside massage experiences</strong>. Based in <strong className="text-[var(--blue-gray)]">Kapa'a</strong>, we provide convenient mobile services throughout the island, from Princeville to Poipu.
           </p>
           <p className="text-[var(--muted-foreground)] leading-relaxed">
-            Whether you're staying in Princeville, Hanalei, Kapaa, Lihue, Koloa, or Poipu, our licensed massage therapists bring professional wellness services directly to you. From <strong className="text-[var(--blue-gray)]">relaxing Swedish massage</strong> to <strong className="text-[var(--blue-gray)]">therapeutic deep tissue</strong> and <strong className="text-[var(--blue-gray)]">acupuncture therapy</strong>, we customize every session to meet your needs.
+            Whether you're staying in Princeville, Hanalei, Kapaa, Lihue, Koloa, or Poipu, our licensed massage therapists bring professional wellness services directly to you. From <strong className="text-[var(--blue-gray)]">relaxing Swedish massage</strong> to <strong className="text-[var(--blue-gray)]">therapeutic deep tissue</strong>, we customize every session to meet your needs.
           </p>
         </div>
 

@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { VideoSection } from "./components/VideoSection";
@@ -9,10 +10,12 @@ import { ExperienceSection } from "./components/ExperienceSection";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { BookingSection } from "./components/BookingSection";
 import { LocalSEOSection } from "./components/LocalSEOSection";
+import { SupportSection } from "./components/SupportSection";
 import { Footer } from "./components/Footer";
 import { StickyBookingButton } from "./components/StickyBookingButton";
+import { BookingPage } from "./pages/BookingPage";
 
-export default function App() {
+function HomePage() {
   return (
     <div className="min-h-screen">
       <Header />
@@ -35,11 +38,23 @@ export default function App() {
       <div id="booking">
         <BookingSection />
       </div>
+      <SupportSection />
       <div id="contact">
         <LocalSEOSection />
       </div>
       <Footer />
       <StickyBookingButton />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/book" element={<BookingPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logo from "../../imports/logo.png";
+import logo from "../../imports/elevate-logo.png";
 import { serviceCategories } from "../data/services";
 
 export function Header() {
@@ -30,20 +31,13 @@ export function Header() {
   }, []);
 
   const navigation = [
-    { name: "Services", href: "#services" },
-    { name: "Packages", href: "#packages" },
-    { name: "About", href: "#about" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Services", href: "/#services" },
+    { name: "Packages", href: "/#packages" },
+    { name: "About", href: "/#about" },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "Contact", href: "/#contact" },
   ];
 
-  const scrollToBooking = () => {
-    const bookingSection = document.getElementById("booking");
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-  };
 
   return (
     <header
@@ -56,7 +50,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-center h-20">
           {/* Logo */}
-          <a href="#" className="flex items-start absolute left-6 top-0">
+          <a href="/" className="flex items-start absolute left-6 top-0">
             <img
               src={logo}
               alt="Elevate Wellness Kauai"
@@ -105,7 +99,7 @@ export function Header() {
                           {cat.services.map((item) => (
                             <li key={item.name}>
                               <a
-                                href="#services"
+                                href="/#services"
                                 onClick={() => setIsServicesOpen(false)}
                                 className="flex flex-col px-2 py-1.5 rounded-lg hover:bg-[var(--sand)] transition-colors duration-150 group"
                               >
@@ -126,7 +120,7 @@ export function Header() {
                   </div>
                   <div className="border-t border-[var(--border)] px-5 py-3 bg-[var(--sand)]/50">
                     <a
-                      href="#booking"
+                      href="/#booking"
                       onClick={() => setIsServicesOpen(false)}
                       className="text-sm text-[var(--sage)] font-medium hover:underline"
                     >
@@ -153,12 +147,12 @@ export function Header() {
                   {item.name}
                 </a>
               ))}
-            <button
-              onClick={scrollToBooking}
+            <Link
+              to="/book"
               className="px-6 py-2 bg-[var(--sage)] text-white rounded-full hover:bg-[var(--sage-dark)] transition-all duration-300"
             >
               Book Now
-            </button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -190,7 +184,7 @@ export function Header() {
                     {cat.services.map((item) => (
                       <a
                         key={item.name}
-                        href="#services"
+                        href="/#services"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="flex items-center justify-between gap-2 py-1.5 text-[var(--charcoal)] hover:text-[var(--ocean)] transition-colors duration-200"
                       >
@@ -221,12 +215,13 @@ export function Header() {
                     {item.name}
                   </a>
                 ))}
-              <button
-                onClick={scrollToBooking}
+              <Link
+                to="/book"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="px-6 py-3 bg-[var(--sage)] text-white rounded-full hover:bg-[var(--sage-dark)] transition-all duration-300 text-center"
               >
                 Book Now
-              </button>
+              </Link>
             </nav>
           </div>
         )}

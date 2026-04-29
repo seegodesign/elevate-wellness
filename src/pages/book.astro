@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import BookingWidget from '../components/BookingWidget.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Book Your Session | Elevate Wellness Kauai"
+  description="Book your massage session online. Indoor studio or oceanfront — choose the experience that's right for you."
+>
+  <Header />
+
+  <!-- Page hero -->
+  <section class="pt-32 pb-12 bg-gradient-to-br from-[var(--ocean)] via-[var(--blue-gray)] to-[var(--sage)] text-white relative overflow-hidden">
+    <div class="absolute top-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-10 w-72 h-72 bg-[var(--sage)]/20 rounded-full blur-3xl"></div>
+    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
+      <p class="text-white tracking-widest uppercase mb-4">Elevate Wellness Kauai</p>
+      <h1 class="text-4xl md:text-6xl mb-4" style="font-family: var(--font-serif)">
+        Book Your Session
+      </h1>
+      <p class="text-xl text-white/80">
+        Choose a time that works for you. Same-day appointments often available.
+      </p>
+    </div>
+  </section>
+
+  <BookingWidget />
+  <Footer />
+</Layout>

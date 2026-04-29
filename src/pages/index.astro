@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import VideoSection from '../components/VideoSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import PackagesSection from '../components/PackagesSection.astro';
+import WhyChooseSection from '../components/WhyChooseSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import BookingSection from '../components/BookingSection.astro';
+import SupportSection from '../components/SupportSection.astro';
+import LocalSEOSection from '../components/LocalSEOSection.astro';
+import Footer from '../components/Footer.astro';
+import StickyBookingButton from '../components/StickyBookingButton.astro';
+---
+
+<Layout>
+  <Header />
+  <Hero />
+  <VideoSection />
+  <TrustSection />
+  <div id="services"><ServicesSection /></div>
+  <div id="packages"><PackagesSection /></div>
+  <div id="about"><WhyChooseSection /></div>
+  <ExperienceSection />
+  <div id="testimonials"><TestimonialsSection /></div>
+  <div id="booking"><BookingSection /></div>
+  <SupportSection />
+  <div id="contact"><LocalSEOSection /></div>
+  <Footer />
+  <StickyBookingButton />
+</Layout>

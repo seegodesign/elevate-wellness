@@ -1,0 +1,85 @@
+---
+const testimonials = [
+  {
+    name: 'Jennifer & Mark',
+    location: 'Seattle, WA',
+    text: "The couples massage on the beach was the highlight of our honeymoon. The sound of the waves, the professional setup, and the skilled therapists made it absolutely magical. Highly recommend!",
+    rating: 5,
+  },
+  {
+    name: 'David L.',
+    location: 'Los Angeles, CA',
+    text: "I've had massages all over the world, and this was top-tier. The mobile service was so convenient - they came right to our vacation rental. Deep tissue was exactly what I needed after hiking the Na Pali Coast.",
+    rating: 5,
+  },
+  {
+    name: 'Amanda & Chris',
+    location: 'Chicago, IL',
+    text: "We were nervous about finding quality massage on the island, but Elevate Wellness exceeded expectations. Friendly, professional, and the beachside experience was unforgettable. Thank you!",
+    rating: 5,
+  },
+];
+---
+
+<section class="py-24 bg-[var(--warm-white)] relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[var(--sand)] to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+    <div class="text-center mb-16">
+      <p class="text-[var(--blue-gray)] tracking-widest uppercase mb-4">Client Stories</p>
+      <h2 class="text-4xl md:text-6xl mb-6" style="font-family: var(--font-serif)">
+        Loved by Visitors &amp; Locals
+      </h2>
+      <p class="text-xl text-[var(--muted-foreground)] max-w-2xl mx-auto">
+        Real experiences from real people who found their moment of peace with us.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {testimonials.map((t, i) => (
+        <div
+          data-intersect
+          class={`bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 translate-y-4 intersect:opacity-100 intersect:translate-y-0 ${i === 1 ? 'delay-150' : ''}`}
+          style="transition-duration: 700ms"
+        >
+          <div class="flex gap-1 mb-4">
+            {Array.from({ length: t.rating }).map(() => (
+              <svg class="w-5 h-5 fill-[var(--yellow)] text-[var(--yellow)]" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="text-[var(--charcoal)] mb-6 leading-relaxed text-lg italic">"{t.text}"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--ocean)] to-[var(--sage)] flex items-center justify-center text-white text-xl" style="font-family: var(--font-serif)">
+              {t.name.charAt(0)}
+            </div>
+            <div>
+              <p class="font-medium">{t.name}</p>
+              <p class="text-sm text-[var(--muted-foreground)]">{t.location}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="m-12 text-center">
+      <a
+        href="https://www.google.com/search?q=elevate+wellness+kauai"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-[var(--ocean)] hover:text-[var(--ocean-light)] transition-colors"
+      >
+        Read more reviews on Google
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 z-10">
+    <svg viewBox="0 0 1440 99" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+      <path d="M0 30L80 35C160 40 320 50 480 45C640 40 800 20 960 15C1120 10 1280 20 1360 25L1440 30V100H1360C1280 100 1120 100 960 100C800 100 640 100 480 100C320 100 160 100 80 100H0V30Z" fill="#698DA0" fill-opacity="0.3"></path>
+      <path d="M0 50L80 55C160 60 320 70 480 65C640 60 800 40 960 35C1120 30 1280 40 1360 45L1440 50V100H1360C1280 100 1120 100 960 100C800 100 640 100 480 100C320 100 160 100 80 100H0V50Z" fill="#698DA0"></path>
+    </svg>
+  </div>
+</section>

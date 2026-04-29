@@ -1,6 +1,22 @@
-import { Calendar, Clock, MapPin, CreditCard } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router";
+import { Calendar, Clock, MapPin, CreditCard, Building2, Waves } from "lucide-react";
+
+type Location = "indoor" | "oceanfront";
+
+const EMBEDS: Record<Location, { src: string; id: string }> = {
+  indoor: {
+    src: "https://api.leadconnectorhq.com/widget/group/r41cRr67i4wvr0I75paj",
+    id: "r41cRr67i4wvr0I75paj_1777359498865",
+  },
+  oceanfront: {
+    src: "https://api.leadconnectorhq.com/widget/group/001OycXJ4NA6CvB4nMFU",
+    id: "001OycXJ4NA6CvB4nMFU_1777358545714",
+  },
+};
 
 export function BookingSection() {
+  const [location, setLocation] = useState<Location>("indoor");
   const steps = [
     {
       icon: Calendar,
@@ -74,41 +90,17 @@ export function BookingSection() {
           })}
         </div>
 
-        {/* GHL Integration Placeholder */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl mb-3" style={{ fontFamily: 'var(--font-serif)' }}>
-                Book Your Appointment
-              </h3>
-              <p className="text-white/70">
-                GoHighLevel booking integration will be embedded here
-              </p>
-            </div>
 
-            {/* Placeholder for GHL widget */}
-            <div className="bg-white/5 rounded-2xl p-8 border-2 border-dashed border-white/20 min-h-[300px] flex flex-col items-center justify-center">
-              <Calendar className="w-16 h-16 text-white/40 mb-4" />
-              <p className="text-white/60 text-center mb-6">
-                Integration point for GoHighLevel calendar widget
-              </p>
-              <div className="space-y-3 w-full max-w-md">
-                <div className="bg-white/10 h-12 rounded-lg animate-pulse" />
-                <div className="bg-white/10 h-12 rounded-lg animate-pulse" />
-                <div className="bg-white/10 h-12 rounded-lg animate-pulse" />
-              </div>
-            </div>
-
-            <div className="mt-8 text-center">
-              <p className="text-white/70 mb-4">Prefer to call or text?</p>
-              <a
-                href="tel:808-555-0123"
-                className="inline-block px-8 py-4 bg-[var(--sage)] text-white rounded-full hover:bg-[var(--sage-dark)] transition-all duration-300 shadow-lg hover:shadow-[var(--sage)]/50"
-              >
-                (808) 555-0123
-              </a>
-            </div>
-          </div>
+        {/* Book Now CTA */}
+        <div className="text-center">
+          <Link
+            to="/book"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[var(--ocean)] rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            <Calendar className="w-5 h-5" />
+            Book Now
+          </Link>
+          <p className="mt-4 text-white/60 text-sm">Same-day appointments often available</p>
         </div>
       </div>
 

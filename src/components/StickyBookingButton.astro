@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<!-- Mobile: bottom center -->
+<a
+  id="sticky-btn-mobile"
+  href="/book"
+  class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-8 py-4 bg-[var(--sage)] text-white rounded-full shadow-2xl hover:shadow-[var(--sage)]/50 flex items-center gap-2 hover:scale-105 transition-all duration-300 translate-y-24 opacity-0"
+  aria-hidden="true"
+>
+  <Icon name="lucide:calendar" class="w-5 h-5" />
+  <span>Book Now</span>
+</a>
+
+<!-- Desktop: bottom right -->
+<a
+  id="sticky-btn-desktop"
+  href="/book"
+  class="hidden md:flex fixed bottom-8 right-8 z-50 px-8 py-4 bg-[var(--sage)] text-white rounded-full shadow-2xl hover:shadow-[var(--sage)]/50 items-center gap-2 hover:scale-105 transition-all duration-300 translate-x-24 opacity-0"
+  aria-hidden="true"
+>
+  <Icon name="lucide:calendar" class="w-5 h-5" />
+  <span>Book Appointment</span>
+</a>
+
+<script>
+  const mobile = document.getElementById('sticky-btn-mobile')!;
+  const desktop = document.getElementById('sticky-btn-desktop')!;
+
+  function update() {
+    const show = window.scrollY > 300;
+    // Mobile
+    mobile.classList.toggle('translate-y-24', !show);
+    mobile.classList.toggle('opacity-0', !show);
+    mobile.setAttribute('aria-hidden', show ? 'false' : 'true');
+    // Desktop
+    desktop.classList.toggle('translate-x-24', !show);
+    desktop.classList.toggle('opacity-0', !show);
+    desktop.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+</script>

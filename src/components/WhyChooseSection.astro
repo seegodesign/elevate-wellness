@@ -1,0 +1,69 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const reasons = [
+  {
+    icon: 'lucide:award',
+    title: 'Licensed Therapists',
+    description: 'All our massage therapists are licensed, insured, and have years of experience in therapeutic bodywork.',
+  },
+  {
+    icon: 'lucide:map-pin',
+    title: 'Convenient Mobile Service',
+    description: 'We come to you anywhere in Kauai - your hotel, vacation rental, or favorite beach spot.',
+  },
+  {
+    icon: 'lucide:waves',
+    title: 'Relaxing Beachside Setup',
+    description: 'Experience the magic of massage therapy with ocean waves and tropical breezes as your backdrop.',
+  },
+  {
+    icon: 'lucide:heart',
+    title: 'Personalized Treatments',
+    description: 'Every session is customized to your needs, preferences, and comfort level. Your wellness, your way.',
+  },
+];
+---
+
+<section class="relative py-28 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1800"
+      alt=""
+      class="w-full h-full object-cover"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-[var(--ocean-dark)]/70"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <div
+      data-intersect
+      class="text-center mb-16 opacity-0 translate-y-6 transition-all duration-700 intersect:opacity-100 intersect:translate-y-0"
+    >
+      <p class="text-[var(--orange)] tracking-widest uppercase text-sm mb-3">Why Choose Us</p>
+      <h2 class="text-4xl md:text-6xl text-white leading-tight mb-4" style="font-family: var(--font-serif)">
+        The Elevate difference.
+      </h2>
+      <p class="text-white/60 max-w-xl mx-auto leading-relaxed">
+        Friendly, professional, and dedicated to creating the perfect relaxation experience for you.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {reasons.map((reason, i) => (
+        <div
+          data-intersect
+          class={`group flex flex-col items-center text-center p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 hover:bg-white/20 hover:border-white/30 transition-all duration-300 opacity-0 translate-y-7 intersect:opacity-100 intersect:translate-y-0 ${i === 1 ? 'delay-[120ms]' : i === 2 ? 'delay-[240ms]' : i === 3 ? 'delay-[360ms]' : ''}`}
+          style="transition-duration: 600ms"
+        >
+          <div class="mb-5 w-14 h-14 rounded-full bg-[var(--orange)]/20 border border-[var(--orange)]/30 flex items-center justify-center group-hover:bg-[var(--orange)]/30 transition-colors duration-300">
+            <Icon name={reason.icon} class="w-6 h-6 text-[var(--orange)]" />
+          </div>
+          <h3 class="text-xl text-white mb-3" style="font-family: var(--font-serif)">{reason.title}</h3>
+          <p class="text-white/60 leading-relaxed text-sm">{reason.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

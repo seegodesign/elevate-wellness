@@ -1,0 +1,200 @@
+---
+import { Icon } from 'astro-icon/components';
+import logo from '../imports/elevate-logo.png';
+import { serviceCategories } from '../app/data/services';
+---
+
+<header
+  id="site-header"
+  class="group/header fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  data-scrolled="false"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="flex items-center justify-center h-20">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-start absolute left-6 top-0">
+        <img src={logo.src} alt="Elevate Wellness Kauai" class="h-28 w-auto" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+
+        <!-- Services mega menu -->
+        <div id="services-menu" class="relative">
+          <button
+            id="services-btn"
+            class="flex items-center gap-1 transition-colors duration-200 text-white group-data-[scrolled=true]/header:text-[var(--charcoal)] group-data-[scrolled=true]/header:hover:text-[var(--ocean)]"
+          >
+            Services
+            <Icon name="lucide:chevron-down" id="services-chevron" class="w-4 h-4 transition-transform duration-200" />
+          </button>
+
+          <div
+            id="services-dropdown"
+            class="hidden absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50"
+            style={`width: ${serviceCategories.length * 250}px`}
+          >
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[var(--border)]">
+              <div
+                class="grid divide-x divide-[var(--border)]"
+                style={`grid-template-columns: repeat(${serviceCategories.length}, 1fr)`}
+              >
+                {serviceCategories.map(cat => (
+                  <div class="p-5">
+                    <div class="mb-3">
+                      <h3 class="font-semibold text-[var(--charcoal)] leading-snug">{cat.title}</h3>
+                      <p class="mt-1 text-sm text-[var(--charcoal)]/55 leading-snug">{cat.description}</p>
+                    </div>
+                    <ul class="space-y-0.5">
+                      {cat.services.map(item => (
+                        <li>
+                          <a
+                            href="/#services"
+                            class="flex flex-col px-2 py-1.5 rounded-lg hover:bg-[var(--sand)] transition-colors duration-150 group/item"
+                          >
+                            <span class="text-sm text-[var(--charcoal)] group-hover/item:text-[var(--ocean)] transition-colors">{item.name}</span>
+                            {item.note && <span class="text-xs text-[var(--sage)]">{item.note}</span>}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <div class="border-t border-[var(--border)] px-5 py-3 bg-[var(--sand)]/50">
+                <a href="/#booking" class="text-sm text-[var(--sage)] font-medium hover:underline">
+                  Book any service →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {[
+          { name: 'Packages', href: '/#packages' },
+          { name: 'About', href: '/#about' },
+          { name: 'Testimonials', href: '/#testimonials' },
+          { name: 'Contact', href: '/#contact' },
+        ].map(item => (
+          <a
+            href={item.href}
+            class="transition-colors duration-200 text-white hover:underline group-data-[scrolled=true]/header:text-[var(--charcoal)] group-data-[scrolled=true]/header:hover:text-[var(--ocean)] group-data-[scrolled=true]/header:hover:no-underline"
+          >
+            {item.name}
+          </a>
+        ))}
+
+        <a
+          href="/book"
+          class="px-6 py-2 bg-[var(--sage)] text-white rounded-full hover:bg-[var(--sage-dark)] transition-all duration-300"
+        >
+          Book Now
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        aria-label="Toggle menu"
+        class="md:hidden absolute right-6 text-white group-data-[scrolled=true]/header:text-[var(--charcoal)]"
+      >
+        <Icon name="lucide:menu" id="menu-icon" class="w-6 h-6" />
+        <Icon name="lucide:x" id="close-icon" class="w-6 h-6 hidden" />
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg">
+      <nav class="flex flex-col p-6 space-y-4">
+        <div class="space-y-4">
+          {serviceCategories.map(cat => (
+            <div>
+              <p class="text-xs tracking-widest uppercase text-[var(--ocean)] mb-1">{cat.tag}</p>
+              {cat.services.map(item => (
+                <a
+                  href="/#services"
+                  class="flex items-center justify-between gap-2 py-1.5 text-[var(--charcoal)] hover:text-[var(--ocean)] transition-colors duration-200"
+                >
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[var(--ocean)]/40"></span>
+                    {item.name}
+                  </span>
+                  {item.note && (
+                    <span class="text-xs text-[var(--sage)] bg-[var(--sage)]/10 px-1.5 py-0.5 rounded-full">{item.note}</span>
+                  )}
+                </a>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div class="border-t border-[var(--border)]"></div>
+        {[
+          { name: 'Packages', href: '/#packages' },
+          { name: 'About', href: '/#about' },
+          { name: 'Testimonials', href: '/#testimonials' },
+          { name: 'Contact', href: '/#contact' },
+        ].map(item => (
+          <a href={item.href} class="text-[var(--charcoal)] hover:text-[var(--ocean)] transition-colors duration-200">
+            {item.name}
+          </a>
+        ))}
+        <a
+          href="/book"
+          class="px-6 py-3 bg-[var(--sage)] text-white rounded-full hover:bg-[var(--sage-dark)] transition-all duration-300 text-center"
+        >
+          Book Now
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header')!;
+
+  // Scroll state
+  function updateScroll() {
+    header.dataset.scrolled = window.scrollY > 50 ? 'true' : 'false';
+  }
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  updateScroll();
+
+  // Mobile menu
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const menuIcon = document.getElementById('menu-icon')!;
+  const closeIcon = document.getElementById('close-icon')!;
+
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden', isOpen);
+    menuIcon.classList.toggle('hidden', !isOpen);
+    closeIcon.classList.toggle('hidden', isOpen);
+  });
+
+  // Services dropdown
+  const servicesMenu = document.getElementById('services-menu')!;
+  const servicesDropdown = document.getElementById('services-dropdown')!;
+  const servicesChevron = document.getElementById('services-chevron')!;
+
+  function openDropdown() {
+    servicesDropdown.classList.remove('hidden');
+    servicesChevron.classList.add('rotate-180');
+  }
+  function closeDropdown() {
+    servicesDropdown.classList.add('hidden');
+    servicesChevron.classList.remove('rotate-180');
+  }
+
+  servicesMenu.addEventListener('mouseenter', openDropdown);
+  servicesMenu.addEventListener('mouseleave', closeDropdown);
+
+  document.getElementById('services-btn')!.addEventListener('click', () => {
+    servicesDropdown.classList.contains('hidden') ? openDropdown() : closeDropdown();
+  });
+
+  document.addEventListener('click', e => {
+    if (!servicesMenu.contains(e.target as Node)) closeDropdown();
+  });
+</script>

@@ -39,7 +39,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-5xl md:text-7xl text-white mb-6 leading-tight"
+          className="text-5xl md:text-7xl text-white mb-6"
           style={{ fontFamily: 'var(--font-serif)' }}
         >
           Kauai's Top-rated<br />
@@ -50,7 +50,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
           Couples massage, mobile services, and oceanside experiences — tailored wellness wherever you are on Kauai.
         </motion.p>

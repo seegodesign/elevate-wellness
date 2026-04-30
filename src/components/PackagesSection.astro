@@ -55,7 +55,7 @@ const packages = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto pb-8 mb-12">
       {packages.map((pkg, i) => (
         <div
           data-intersect
@@ -90,19 +90,5 @@ const packages = [
         </div>
       ))}
     </div>
-
-    <div class="mt-12 text-center">
-      <p class="text-[var(--muted-foreground)]">
-        All sessions include consultation and personalized treatment.{' '}
-        <a href="/#contact" class="text-[var(--ocean)] hover:underline">Contact us</a> for custom packages.
-      </p>
-    </div>
-  </div>
-
-  <div class="absolute bottom-0 left-0 right-0 z-10">
-    <svg viewBox="0 0 1440 99" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-      <path d="M0 40C180 60 360 80 540 75C720 70 900 40 1080 30C1260 20 1380 30 1410 35L1440 40V100H0V40Z" fill="#FDFBF7" fill-opacity="0.6"></path>
-      <path d="M0 60C180 75 360 90 540 85C720 80 900 50 1080 40C1260 30 1380 40 1410 45L1440 50V100H0V60Z" fill="#FDFBF7"></path>
-    </svg>
   </div>
 </section>

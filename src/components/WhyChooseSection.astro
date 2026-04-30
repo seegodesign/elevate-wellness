@@ -26,6 +26,16 @@ const reasons = [
 ---
 
 <section class="relative py-28 overflow-hidden">
+  <!-- Wave divider: matches the PackagesSection background (warm-white) -->
+  <div class="absolute top-0 left-0 w-full z-10 leading-none">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" class="w-full h-20 md:h-24" xmlns="http://www.w3.org/2000/svg">
+      <!-- Back wave: same curve, slightly offset, semi-transparent -->
+      <path d="M0,10 C360,90 1080,90 1440,10 L1440,0 L0,0 Z" fill="#FDFBF7" fill-opacity="0.5" />
+      <!-- Front wave: primary curve, fully opaque -->
+      <path d="M0,0 C360,80 1080,80 1440,0 L1440,0 L0,0 Z" fill="#FDFBF7" />
+    </svg>
+  </div>
+
   <div class="absolute inset-0 z-0">
     <img
       src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1800"

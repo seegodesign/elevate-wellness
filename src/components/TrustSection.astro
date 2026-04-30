@@ -1,59 +1,84 @@
 ---
-import googleLogo from '../imports/google-logo.svg';
-import yelpLogo from '../imports/yelp-logo.svg';
-import tripAdvisorLogo from '../imports/tripadvisor-logo.svg';
-
-const reviews = [
-  { platform: 'Google', logo: googleLogo, rating: 4.9, count: 157 },
-  { platform: 'Yelp', logo: yelpLogo, rating: 4.9, count: 245 },
-  { platform: 'TripAdvisor', logo: tripAdvisorLogo, rating: 4.9, count: 195 },
+import { Icon } from "astro-icon/components";
+  const reviews = [
+  { platform: "Google", logo: 'google-logo', rating: 4.9, count: 157 },
+  { platform: "Yelp", logo: 'yelp-logo', rating: 4.9, count: 245 },
+  { platform: "TripAdvisor", logo: 'tripadvisor-logo', rating: 4.9, count: 195 },
 ];
 ---
 
 <section class="py-16 bg-[var(--sand)] relative">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="text-center mb-12">
-      <p class="text-[var(--blue-gray)] tracking-widest uppercase mb-4">Trusted by Locals &amp; Visitors</p>
-      <h2 class="text-4xl md:text-5xl mb-4" style="font-family: var(--font-serif)">
+      <p class="text-[var(--blue-gray)] tracking-widest uppercase mb-4">
+        Trusted by Locals &amp; Visitors
+      </p>
+      <h2
+        class="text-4xl md:text-5xl mb-4"
+        style="font-family: var(--font-serif)"
+      >
         Top-Rated Massage in Kapa'a
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-      {reviews.map((r, i) => (
-        <div
-          data-intersect
-          class={`bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 opacity-0 translate-y-4 intersect:opacity-100 intersect:translate-y-0 ${i === 1 ? 'delay-150' : i === 2 ? 'delay-300' : ''}`}
-          style="transition-duration: 700ms"
-        >
-          <div class="mb-4">
-            <div class="flex justify-center mb-3">
-              <img src={r.logo.src} alt={r.platform} class="h-10 w-auto" />
+      {
+        reviews.map((r, i) => (
+          <div
+            data-intersect
+            class={`bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 opacity-0 translate-y-4 intersect:opacity-100 intersect:translate-y-0 ${i === 1 ? "delay-150" : i === 2 ? "delay-300" : ""}`}
+            style="transition-duration: 700ms"
+          >
+            <div class="mb-4">
+              <div class="flex justify-center mb-3">
+                {/* <img src={r.logo.src} alt={r.platform} class="h-10 w-auto" /> */}
+                <Icon name={r.logo} class="h-10 w-auto" />
+              </div>
+              <p class="text-xl mb-3">{r.platform}</p>
+              <div class="flex justify-center gap-1 mb-2">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg
+                    class="w-5 h-5 fill-[var(--yellow)] text-[var(--yellow)]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="text-3xl" style="font-family: var(--font-serif)">
+                {r.rating.toFixed(1)}
+              </p>
             </div>
-            <p class="text-xl mb-3">{r.platform}</p>
-            <div class="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map(() => (
-                <svg class="w-5 h-5 fill-[var(--yellow)] text-[var(--yellow)]" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              ))}
-            </div>
-            <p class="text-3xl" style="font-family: var(--font-serif)">{r.rating.toFixed(1)}</p>
+            <p class="text-[var(--muted-foreground)]">{r.count} reviews</p>
           </div>
-          <p class="text-[var(--muted-foreground)]">{r.count} reviews</p>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     <div class="mt-12 text-center">
-      <p class="text-lg text-[var(--muted-foreground)] italic max-w-3xl mx-auto">
-        "The best massage experience we've had on the island. Professional, relaxing, and incredibly convenient with their mobile service."
+      <p
+        class="text-lg text-[var(--muted-foreground)] italic max-w-3xl mx-auto"
+      >
+        "The best massage experience we've had on the island. Professional,
+        relaxing, and incredibly convenient with their mobile service."
       </p>
-      <p class="mt-3 text-[var(--ocean)]">— Sarah &amp; Michael, San Francisco</p>
+      <p class="mt-3 text-[var(--ocean)]">
+        — Sarah &amp; Michael, San Francisco
+      </p>
     </div>
   </div>
 
   <div class="absolute bottom-0 left-0 right-0 z-10">
-    <svg viewBox="0 0 1440 79" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full" preserveAspectRatio="none">
-      <path d="M0 20L120 30C240 40 480 60 720 60C960 60 1200 40 1320 30L1440 20V80H0V20Z" fill="var(--charcoal)"></path>
+    <svg
+      viewBox="0 0 1440 79"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0 20L120 30C240 40 480 60 720 60C960 60 1200 40 1320 30L1440 20V80H0V20Z"
+        fill="var(--charcoal)"></path>
     </svg>
   </div>
 </section>

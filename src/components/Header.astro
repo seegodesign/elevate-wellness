@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import logo from '../imports/elevate-logo.png';
-import { serviceCategories } from '../app/data/services';
+import { serviceCategories } from '../data/services';
 ---
 
 <header
@@ -155,7 +155,11 @@ import { serviceCategories } from '../app/data/services';
 
   // Scroll state
   function updateScroll() {
-    header.dataset.scrolled = window.scrollY > 50 ? 'true' : 'false';
+    const scrolled = window.scrollY > 50;
+    header.dataset.scrolled = scrolled ? 'true' : 'false';
+    header.classList.toggle('bg-white/80', scrolled);
+    header.classList.toggle('backdrop-blur-md', scrolled);
+    header.classList.toggle('shadow-sm', scrolled);
   }
   window.addEventListener('scroll', updateScroll, { passive: true });
   updateScroll();

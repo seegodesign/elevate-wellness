@@ -1,15 +1,19 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 ---
 
 <section class="flex-1 bg-[var(--sand)] py-16">
-  <div class="max-w-5xl mx-auto px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <!-- Location Picker -->
     <div class="text-center mb-8">
-      <p class="text-[var(--charcoal)]/60 text-sm uppercase tracking-widest mb-4">
+      <p
+        class="text-[var(--charcoal)]/60 text-sm uppercase tracking-widest mb-4"
+      >
         Where would you like your massage?
       </p>
-      <div class="inline-flex rounded-2xl bg-[var(--charcoal)]/10 border border-[var(--charcoal)]/20 p-1.5 gap-1.5">
+      <div
+        class="inline-flex rounded-2xl bg-[var(--charcoal)]/10 border border-[var(--charcoal)]/20 p-1.5 gap-1.5"
+      >
         <button
           data-location="indoor"
           aria-pressed="true"
@@ -31,39 +35,49 @@ import { Icon } from 'astro-icon/components';
 
     <!-- GHL Iframes -->
     <div class="rounded-2xl overflow-hidden">
-      <iframe
-        data-location="indoor"
-        src="https://api.leadconnectorhq.com/widget/group/r41cRr67i4wvr0I75paj"
-        style="width: 100%; min-height: 800px; border: none; overflow: hidden;"
-        scrolling="no"
-        id="r41cRr67i4wvr0I75paj_1777359498865"
-      ></iframe>
-      <iframe
-        data-location="oceanfront"
-        src="https://api.leadconnectorhq.com/widget/group/001OycXJ4NA6CvB4nMFU"
-        style="width: 100%; min-height: 800px; border: none; overflow: hidden;"
-        scrolling="no"
-        id="001OycXJ4NA6CvB4nMFU_booking_page"
-        class="hidden"
-      ></iframe>
+      <div data-location="indoor">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/service-menu/69f05213f0ebe72fd28ef3c2"
+          style="width: 100%;border:none;overflow: hidden;"
+          scrolling="no"
+          id="69f05213f0ebe72fd28ef3c2_1777463228500"
+        ></iframe>
+      </div>
+      <div data-location="oceanfront" class="hidden">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/service-menu/69f1e62f7a5b5e3aa6438e4c"
+          style="width: 100%;border:none;overflow: hidden;"
+          scrolling="no"
+          id="69f1e62f7a5b5e3aa6438e4c_1777463239172"
+        ></iframe>
+      </div>
     </div>
   </div>
 </section>
 
 <script>
-  const buttons = document.querySelectorAll<HTMLButtonElement>('button[data-location]');
-  const frames = document.querySelectorAll<HTMLIFrameElement>('iframe[data-location]');
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "button[data-location]",
+  );
+  const containers =
+    document.querySelectorAll<HTMLDivElement>("div[data-location]");
 
   function setLocation(location: string) {
-    buttons.forEach(btn => {
-      btn.setAttribute('aria-pressed', btn.dataset.location === location ? 'true' : 'false');
+    buttons.forEach((btn) => {
+      btn.setAttribute(
+        "aria-pressed",
+        btn.dataset.location === location ? "true" : "false",
+      );
     });
-    frames.forEach(frame => {
-      frame.classList.toggle('hidden', frame.dataset.location !== location);
+    containers.forEach((container) => {
+      container.classList.toggle(
+        "hidden",
+        container.dataset.location !== location,
+      );
     });
   }
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => setLocation(btn.dataset.location!));
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => setLocation(btn.dataset.location!));
   });
 </script>

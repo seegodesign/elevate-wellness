@@ -6,6 +6,6 @@ export default defineConfig({
   integrations: [icon({ iconDir: 'src/icons' })],
   vite: {
     plugins: [tailwindcss()],
-    assetsInclude: ['**/*.mp4'],
+    assetsInclude: ['**/*.webm'],
   },
 });
